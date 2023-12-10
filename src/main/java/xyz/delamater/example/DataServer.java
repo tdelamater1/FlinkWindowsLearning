@@ -1,4 +1,4 @@
-package org.example;
+package xyz.delamater.example;
 
 import java.io.IOException;
 import java.io.PrintWriter;

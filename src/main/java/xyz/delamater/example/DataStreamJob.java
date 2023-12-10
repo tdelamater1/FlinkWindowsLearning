@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.example;
+package xyz.delamater.example;
 
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -36,11 +36,7 @@ public class DataStreamJob {
     public static void main(String[] args) throws Exception {
         // set up the streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        System.out.println("test");
-        //env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-
         DataStreamSource<String> data = env.socketTextStream("localhost", 9090);
-
 
         data.map(new MapFunction<String, Tuple2<Long, String>>() {
                     public Tuple2<Long, String> map(String s) {
